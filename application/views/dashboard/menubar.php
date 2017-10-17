@@ -9,10 +9,10 @@
                 <li><a  href="#">Branch List</a></li>
             </ul>
         </li>
-        <li><a class="dropdown" href="javascript:;">Branch<i class="local fa fa-chevron-circle-down"></i></a>
+        <li><a class="dropdown" href="javascript:;">Products<i class="local fa fa-chevron-circle-down"></i></a>
             <ul class="sub_menu" style="display: none">
                 <li><a href="#">Add New</a></li>
-                <li><a href="#">Branch List</a></li>
+                <li><a href="#">Product Lists</a></li>
             </ul>
         </li>
         <li><a href="#">Dashboard</a></li>
@@ -26,6 +26,7 @@
         </li>
     </ul>
 </div>
+
 </div>
 <script>
     // Dropdown Menu fuctions here

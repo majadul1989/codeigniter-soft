@@ -42,7 +42,13 @@
                 </ul>
             </div><!--listStyle-->
         </div><!--showCate-->
-
+            <?php
+//            // set Barcode39 object
+//            $bc = new Barcode39("Shay Anderson");
+//
+//            // display new barcode
+//            echo $bc->draw();
+            ?>
     </div><!--main-->
 
 </div>

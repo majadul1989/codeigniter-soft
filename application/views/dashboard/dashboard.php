@@ -10,7 +10,6 @@
     <div class="col-md-10 col-lg-10 main">
         <?php print_r($_SESSION);
         echo $this->session->userdata['logged_in']['UserId']; ?>
-        main
     </div><!--main-->
 
 </div>
