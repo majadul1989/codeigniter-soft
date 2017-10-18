@@ -8,7 +8,6 @@ if (isset($this->session->userdata['logged_in'])) {
 //    @$actived = "";
         redirect('/login', 'refresh');
 }
- include_once ('Barcode39.php');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>

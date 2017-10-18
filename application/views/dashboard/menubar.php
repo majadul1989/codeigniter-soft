@@ -10,9 +10,9 @@
             </ul>
         </li>
         <li><a class="dropdown" href="javascript:;">Products<i class="local fa fa-chevron-circle-down"></i></a>
-            <ul class="sub_menu" style="display: none">
-                <li><a href="#">Add New</a></li>
-                <li><a href="#">Product Lists</a></li>
+            <ul class="sub_menu" style="display: <?php echo  ($pageUrl == 'product' || $pageUrl == 'product_lists' ? 'block' : 'none'); ?>;">
+                <li><a class="<?php echo  ($pageUrl == 'product'? 'active2' : ''); ?>" href="<?php echo base_url('dashboard/product'); ?>">Add New</a></li>
+                <li><a class="<?php echo  ($pageUrl == 'product_lists'? 'active2' : ''); ?>" href="<?php echo base_url('dashboard/product_lists'); ?>">Product Lists</a></li>
             </ul>
         </li>
         <li><a href="#">Dashboard</a></li>
