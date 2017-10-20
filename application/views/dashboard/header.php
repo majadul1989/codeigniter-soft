@@ -28,6 +28,7 @@ if (isset($this->session->userdata['logged_in'])) {
     <!-- Bootstrap 3.3.6 -->
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css');?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.css');?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-select.css');?>">
 
     <link rel="stylesheet" href="<?php echo base_url('assets/css/custom_style.css');?>">
 <!--    font Awasame-->

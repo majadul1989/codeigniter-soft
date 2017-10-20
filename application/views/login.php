@@ -12,7 +12,7 @@
 				echo '<div class="btn-success btn success">'.$success_logout.'</div>';
 			}
 		?>
-		<form class="form-horizontal" action="<?php echo base_url('login/userLogin'); ?>" method="post" enctype="multipart/form-data">
+		<form class="form-horizontal" action="<?php echo base_url('dashboard/dashboard/userLogin'); ?>" method="post" enctype="multipart/form-data">
 			<div class="form-group">
 			  <label for="mail" class="col-sm-3 control-label">Email</label>
 			  <div class="col-sm-9">
