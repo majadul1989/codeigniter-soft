@@ -7,23 +7,33 @@ class AddNew extends CI_Controller {
 //      generate barcode
         $this->load->model('products');
         $result2 = $this->products->productData();
-        if ($result2 == TRUE){
-            echo $result2[0]->ProductId;
-//           echo $result2->ProductId;
+        if (!empty($result2)){
+            $id = "10000".$result2[0]->ProductId;
+            $this->zend->load('Zend/Barcode');
+            $file = Zend_Barcode::draw('code128', 'image', array('text' => '1222667891234'), array());
+            $data['id'] = $id;
+            $code = time().'122222';
+            imagepng($file,"barcode/{$code}.png");
+            $data['barcode'] = $code.'.png';
+
+            $this->load->view('dashboard/header');
+            $this->load->view('dashboard/menubar');
+            $this->load->view('product/addNew',$data);
+            $this->load->view('dashboard/footer');
         }else{
-            echo "false";
+            $this->zend->load('Zend/Barcode');
+            $file = Zend_Barcode::draw('code128', 'image', array('text' => '1222667891234'), array());
+            $id = 100001;
+            $data['id'] = $id;
+            $code = time().'122222';
+            imagepng($file,"barcode/{$code}.png");
+            $data['barcode'] = $code.'.png';
+
+            $this->load->view('dashboard/header');
+            $this->load->view('dashboard/menubar');
+            $this->load->view('product/addNew',$data);
+            $this->load->view('dashboard/footer');
         }
-//        $this->zend->load('Zend/Barcode');
-//        $file = Zend_Barcode::draw('code128', 'image', array('text' => '1222667891234'), array());
-//        $data['id'] = '122222';
-//        $code = time().'122222';
-//        imagepng($file,"barcode/{$code}.png");
-//        $data['barcode'] = $code.'.png';
-//
-//        $this->load->view('dashboard/header');
-//        $this->load->view('dashboard/menubar');
-//        $this->load->view('product/addNew',$data);
-//        $this->load->view('dashboard/footer');
 
     }
 
@@ -36,13 +46,29 @@ class AddNew extends CI_Controller {
                 'is_unique'     => 'This %s already exists.'
             )
         );
-        $this->form_validation->set_rules('type', 'Type','trim|xss_clean|required|numeric');
-        $this->form_validation->set_rules('gourp', 'Gourp','trim|xss_clean|required|numeric');
-        $this->form_validation->set_rules('price', 'Item Price','trim|xss_clean|required');
+        $this->form_validation->set_rules('type', 'Type','trim|xss_clean|required');
+        $this->form_validation->set_rules('gourp', 'Gourp','trim|xss_clean|required');
+        $this->form_validation->set_rules('price', 'Item Price','trim|xss_clean|required|numeric');
         $this->form_validation->set_rules('description', 'description','trim|xss_clean');
 
-        if ($this->form_validation->run() == FALSE) {
-
+        if ($this->form_validation->run() == FALSE) { // Check Valideation False
+            $this->load->model('products');
+            $result2 = $this->products->productData(); // Insert ID Validation
+            if (!empty($result2)){ // Check ID Not Empty
+                $id = "10000".$result2[0]->ProductId;
+                $data['id'] = $id;
+                $this->load->view('dashboard/header');
+                $this->load->view('dashboard/menubar');
+                $this->load->view('product/addNew', $data);
+                $this->load->view('dashboard/footer');
+            }else{ // Check ID Not Empty
+                $id = "100001";
+                $data['id'] = $id;
+                $this->load->view('dashboard/header');
+                $this->load->view('dashboard/menubar');
+                $this->load->view('product/addNew', $data);
+                $this->load->view('dashboard/footer');
+            } // Insert ID Validation
 
 
         }else{
@@ -54,7 +80,7 @@ class AddNew extends CI_Controller {
             $UserType = 'user';
             $status = 'Active';
             $UserId = '';
-        }
+        } // Check Valideation True
 
 
 }

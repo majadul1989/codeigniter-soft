@@ -5,9 +5,6 @@
 
     </div><!--menubar-->
     <div class="col-md-10 col-lg-10 main">
-<!--        --><?php //print_r($_SESSION);
-        print_r($result->ProductId);
-               ?>
         <form class="form-horizontal" action="<?php echo base_url('product/addnew/addNewPorduct');?>" enctype="multipart/form-data"  id="contact_form" role="form" method="POST">
 
             <fieldset>
