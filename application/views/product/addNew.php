@@ -11,28 +11,6 @@
         <form class="form-horizontal" action="<?php echo base_url('product/addnew/addNewPorduct');?>" enctype="multipart/form-data"  id="contact_form" role="form" method="POST">
 
             <fieldset>
-                <!-- Success message -->
-                <div class="form-group">
-                    <label class="col-md-3 control-label">Item Id</label>
-                    <div class="col-md-7 inputGroupContainer">
-
-                        <div class="input-group">
-                            <span class="input-group-addon"></span>
-                            <input id="id" type="text" class="form-control" name="id" value="<?php echo $id; ?>"  disabled autofocus required>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-md-3 control-label">Item Barcode</label>
-                    <div class="col-md-7 inputGroupContainer">
-
-                        <div class="input-group">
-                            <span class="input-group-addon"></span>
-                            <input id="barcode" type="text" class="form-control" name="barcode" value="<?php echo $barcode; ?>"  autofocus required>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Dropdown-->
                 <div class="form-group">
