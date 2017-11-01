@@ -4,7 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class AddNew extends CI_Controller {
 
     public function index(){
-//      generate barcode
         $this->load->model('products');
         $this->load->view('dashboard/header');
         $this->load->view('dashboard/menubar');
@@ -73,8 +72,11 @@ class AddNew extends CI_Controller {
 //                'UpdatedBy'=>$sessionID,
 //                'UpdatedDate'=>$date
 //            );
-
-            $insert = $this->db->query("call productPRO('$item_name','$type','$group','$price','$file_name','$description','$status','$sessionID','$date','$sessionID','$date')");
+            $this->load->model('products');
+            $barCode = $this->products->productData(); // Veriable to for barcode;
+//            print_r($barCode[0]->BarCode);
+            $barcode = $barCode[0]->BarCode+1;
+            $insert = $this->db->query("call productPRO('$barcode','$item_name','$type','$group','$price','$file_name','$description','$status','$sessionID','$date','$sessionID','$date')");
             if ($insert == TRUE){
                 $refresh = 'Product Added';
                 redirect('/product/addNew', $refresh);
